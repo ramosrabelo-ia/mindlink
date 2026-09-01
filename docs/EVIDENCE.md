@@ -10,7 +10,7 @@
 | Análise estatística | `notebooks/EC_Sprint_3_MindLink_SheLeads_ML_FINAL.ipynb` | Exploração, testes estatísticos e discussão metodológica | Modelo preditivo de produção |
 | Arquitetura | `docs/ARCHITECTURE.md` | Escolha Lambda e separação entre batch implementado e speed futura | Streaming em tempo real |
 
-## Evidências visuais existentes
+## Evidências visuais da entrega
 
 Os relatórios acadêmicos da Sprint 3 registram:
 
@@ -20,4 +20,4 @@ Os relatórios acadêmicos da Sprint 3 registram:
 - consulta de 3.305 registros em `STG_MINDLINK_INTERNACOES`;
 - tabelas de staging, dimensões, fatos e views no Oracle Database Actions.
 
-Arquivos de imagem, Wallet, credenciais e bases brutas não são versionados neste repositório. A ausência desses arquivos no GitHub é um controle de segurança, não ausência de documentação.
+Wallet, credenciais e bases brutas não são versionados. Os prints técnicos selecionados devem ser sanitizados e catalogados em [`docs/evidencias/`](evidencias/README.md). Nesta auditoria, a pasta foi preparada, mas os arquivos visuais ainda não foram incluídos.

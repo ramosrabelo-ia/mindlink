@@ -135,6 +135,7 @@ mindlink/
 
 Consulte também:
 
+- [Auditoria técnica da Fase 04](docs/AUDITORIA_FASE04.md)
 - [Status técnico e limitações](docs/STATUS.md)
 - [Matriz de evidências](docs/EVIDENCE.md)
 - [Jornada da arquitetura Lambda](docs/ARCHITECTURE.md)
