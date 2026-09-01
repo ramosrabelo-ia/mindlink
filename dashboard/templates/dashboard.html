@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MindLink · Pressão hospitalar e demência</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="{{ url_for('static', filename='dashboard.js') }}" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div><span class="eyebrow">Challenge Oracle + FIAP 2026</span><h1>MindLink</h1></div>
+      <p>Dados públicos organizados para enxergar pressão hospitalar associada à demência antes que ela vire crise.</p>
+      <span id="mode" class="badge">carregando</span>
+    </header>
+
+    <aside id="notice" class="notice"></aside>
+
+    <section class="kpis" aria-label="Indicadores principais">
+      <article><span>Internações</span><strong id="kpi-internacoes">—</strong></article>
+      <article><span>Óbitos</span><strong id="kpi-obitos">—</strong></article>
+      <article><span>Dias de permanência</span><strong id="kpi-permanencia">—</strong></article>
+      <article><span>Hospitais</span><strong id="kpi-hospitais">—</strong></article>
+    </section>
+
+    <section class="grid">
+      <article class="panel wide"><h2>Evolução mensal</h2><p>Internações e óbitos no recorte analisado.</p><div class="chart"><canvas id="trendChart"></canvas></div></article>
+      <article class="panel"><h2>Maior pressão relativa</h2><p>Proxy de dias de permanência por leitos-dia SUS cadastrados.</p><ol id="pressure"></ol></article>
+      <article class="panel"><h2>Diagnósticos associados</h2><p>Comorbidades registradas no diagnóstico secundário.</p><div class="chart"><canvas id="comorbidityChart"></canvas></div></article>
+    </section>
+
+    <section class="panel ai">
+      <div><span class="eyebrow">Oracle Select AI</span><h2>Pergunte aos dados em português</h2><p>O retorno mostra a resposta e também o SQL gerado para auditoria.</p></div>
+      <form id="ask-form"><input id="question" maxlength="500" placeholder="Quais hospitais tiveram maior pressão no último período?" required><button type="submit">Perguntar</button></form>
+      <div id="ai-status" role="status"></div>
+      <pre id="ai-sql" hidden></pre><div id="ai-answer"></div>
+    </section>
+
+    <section class="panel"><h2>Previsões de até três meses</h2><div id="predictions" class="empty">Nenhuma previsão validada e carregada no momento.</div></section>
+  </main>
+</body>
+</html>
+

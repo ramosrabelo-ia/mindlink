@@ -28,7 +28,7 @@ O problema é que os dados existem em lugares diferentes e chegam com atraso. A 
 | Contagem de 3.305 registros | Validada pela DAG | A DAG consultou a staging Oracle já existente e confirmou `3.305` registros. Ela não carregou esses registros nessa mesma execução. |
 | Select AI | Dependente do ambiente Oracle | As perguntas e consultas de referência existem, mas a execução ao vivo exige perfil, credencial e acesso ao banco. |
 | Previsão de 1 a 3 meses | Pesquisa/protótipo | Há estrutura de dados e notebook analítico; não existe, neste repositório, um modelo preditivo de produção validado. |
-| Dashboard | Protótipo separado | A interface da fase anterior é demonstrativa e não é apresentada aqui como painel Oracle ao vivo. |
+| Dashboard | Implementado e testado em modo demonstrativo | A API e a interface estão prontas; a consulta ao Oracle depende de Wallet e credenciais válidas. |
 
 Essa distinção é intencional: **implementado**, **executado**, **evidenciado** e **planejado** não significam a mesma coisa.
 
@@ -135,6 +135,7 @@ mindlink/
 
 Consulte também:
 
+- [Executar o dashboard](dashboard/README.md)
 - [Auditoria técnica da Fase 04](docs/AUDITORIA_FASE04.md)
 - [Status técnico e limitações](docs/STATUS.md)
 - [Matriz de evidências](docs/EVIDENCE.md)

@@ -65,3 +65,15 @@ Essas contagens pertencem à evidência da entrega Oracle. Como o banco estava i
 4. Validar o perfil do Select AI sem versionar segredos.
 5. Treinar e avaliar o modelo antes de afirmar que há previsão de três meses carregada.
 
+## Evolução posterior à auditoria
+
+O ciclo `fase-04-dashboard-select-ai` acrescentou:
+
+- dashboard Flask com API intermediária e interface responsiva;
+- modo demonstrativo explicitamente identificado;
+- consultas ao modelo dimensional Oracle para KPIs, tendência, pressão e comorbidades;
+- endpoint de Select AI que devolve `showsql` e `narrate`;
+- SQL sem credenciais para criação do perfil e comentários semânticos;
+- testes das rotas sem dependência do Oracle.
+
+O código está implementado, mas o dashboard Oracle e o Select AI só poderão ser marcados como executados depois da conexão e da validação no Autonomous Database.

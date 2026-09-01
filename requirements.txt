@@ -5,3 +5,7 @@ pyarrow>=14,<21
 
 # A conexão só é usada com --oracle-load ou --oracle-validate.
 oracledb>=2,<4
+
+# Dashboard e configuração local.
+Flask>=3,<4
+python-dotenv>=1,<2

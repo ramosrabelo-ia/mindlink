@@ -1,0 +1,2 @@
+"""Aplicação web da MindLink."""
+

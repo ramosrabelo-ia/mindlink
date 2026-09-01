@@ -13,8 +13,8 @@ Este documento separa o que existe no código do que foi executado e do que aind
 | DML da carga Oracle | Sim | Sim na entrega | Oracle ADB | Preservada como evidência técnica |
 | DAG Airflow | Sim | Sim | Airflow + Wallet | Executada no ambiente da Sprint 3 |
 | Validação de 3.305 linhas | Sim | Sim | Oracle ADB | Consulta a staging previamente carregada |
-| Select AI | Referências legadas | Parcial | Perfil e credencial de IA | Não reproduzido nesta revisão |
-| Dashboard Oracle ao vivo | Não | Não | Backend hospedado | Fora do escopo comprovado |
+| Select AI | Endpoint e SQL de configuração | Não no Oracle | Perfil e credencial de IA | Implementado; ativação pendente no banco |
+| Dashboard | Sim | Sim em modo demonstrativo | Oracle + Wallet para dados reais | API e interface testadas; conexão real pendente |
 | Previsão operacional | Estrutura/notebook | Não como produção | Série, modelo e monitoramento | Pesquisa/protótipo |
 
 ## Leitura correta da execução Airflow
