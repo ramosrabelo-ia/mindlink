@@ -6,7 +6,7 @@
 | Teste demonstrativo | `tests/test_demo_pipeline.py` | Execução ponta a ponta sem fonte externa | Resultado epidemiológico real |
 | DAG Airflow | `dags/mindlink_primeira_dag.py` | Ordem das tasks, execução demo e consulta de validação Oracle | Carga das 3.305 linhas naquele mesmo run |
 | Modelo Oracle | `sql/01_ddl_mindlink_sprint3.sql` | Estrutura de staging, dimensões, fatos, constraints, índices e views | Que todos os objetos estejam disponíveis hoje |
-| Carga da Sprint 3 | `sql/02_dml_mindlink_sprint3.sql` | Registros e comandos utilizados para popular/promover o modelo da entrega | Atualização automática posterior |
+| DML da carga Oracle | `sql/02_dml_mindlink_sprint3.sql` | Apenas registra que o artefato está pendente | A carga da Sprint 3, promoção para o modelo ou execução no Oracle |
 | Análise estatística | `notebooks/EC_Sprint_3_MindLink_SheLeads_ML_FINAL.ipynb` | Exploração, testes estatísticos e discussão metodológica | Modelo preditivo de produção |
 | Arquitetura | `docs/ARCHITECTURE.md` | Escolha Lambda e separação entre batch implementado e speed futura | Streaming em tempo real |
 
