@@ -8,9 +8,9 @@ Auditoria do pacote técnico da MindLink realizada em 1º de setembro de 2026. O
 |---|---|---|---|
 | `STG_*`, `DIM_*` e `FATO_*` | Oracle Autonomous AI Database | Evidenciadas na Sprint 3; sem reexecução Oracle nesta auditoria | DDL e DML reproduzíveis estão em `sql/`. |
 | `PREVISAO_PRESSAO_TRIMESTRAL` | Oracle Autonomous AI Database | Estrutura criada no DDL; carga/modelo não comprovados | Não apresentar como previsão operacional entregue. |
-| Dados que alimentaram as tabelas | Oracle; cópia técnica incorporada ao DML | A carga documentada está em `sql/02_dml_mindlink_sprint3.sql` | Bases brutas, Wallet e credenciais não devem ser versionados. |
+| Dados que alimentaram as tabelas | Oracle; artefato de carga ainda não recuperado | As contagens pertencem às evidências anteriores, mas o DML correspondente não está disponível neste PR | Bases brutas, Wallet e credenciais não devem ser versionados. |
 | DDL | `sql/01_ddl_mindlink_sprint3.sql` | Presente | Cria stagings, dimensões, fatos, previsão, índices e views. |
-| DML | `sql/02_dml_mindlink_sprint3.sql` | Presente | Registra a carga da entrega e promove staging para o modelo analítico. |
+| DML | `sql/02_dml_mindlink_sprint3.sql` | Pendente | O arquivo atual é somente um marcador; não contém comandos de carga nem comprova promoção para o modelo analítico. |
 | ETL Python | `src/mindlink_etl_sprint3_oracle.py` | Presente e validado localmente em modo `--demo` | O ETL não substitui o DDL; a estrutura Oracle deve existir antes da carga. |
 | DAG Airflow | `dags/mindlink_primeira_dag.py` | Presente; execução anterior documentada | Executa ETL demonstrativo e consulta a staging Oracle já carregada. |
 | Notebook | `notebooks/EC_Sprint_3_MindLink_SheLeads_ML_FINAL.ipynb` | Presente | Evidência analítica; não equivale a modelo preditivo de produção. |
@@ -59,9 +59,10 @@ Essas contagens pertencem à evidência da entrega Oracle. Como o banco estava i
 
 ## Pendências objetivas
 
-1. Reexecutar as consultas de contagem e integridade quando o Oracle estiver disponível.
-2. Selecionar e sanitizar os prints da DAG, logs e Database Actions.
-3. Copiar somente as evidências visuais necessárias para `docs/evidencias/` e preencher o manifesto da pasta.
-4. Validar o perfil do Select AI sem versionar segredos.
-5. Treinar e avaliar o modelo antes de afirmar que há previsão de três meses carregada.
+1. Recuperar e validar o DML original da carga antes de apresentá-lo como artefato entregue.
+2. Reexecutar as consultas de contagem e integridade quando o Oracle estiver disponível.
+3. Selecionar e sanitizar os prints da DAG, logs e Database Actions.
+4. Copiar somente as evidências visuais necessárias para `docs/evidencias/` e preencher o manifesto da pasta.
+5. Validar o perfil do Select AI sem versionar segredos.
+6. Treinar e avaliar o modelo antes de afirmar que há previsão de três meses carregada.
 
