@@ -114,7 +114,7 @@ python src/mindlink_etl_sprint3_oracle.py \
 Os scripts oficiais estão separados por responsabilidade:
 
 1. [`sql/01_ddl_mindlink_sprint3.sql`](sql/01_ddl_mindlink_sprint3.sql) cria staging, dimensões, fatos, índices e views.
-2. [`sql/02_dml_mindlink_sprint3.sql`](sql/02_dml_mindlink_sprint3.sql) registra a carga utilizada na entrega e promove os dados para o modelo analítico.
+2. [`sql/02_dml_mindlink_sprint3.sql`](sql/02_dml_mindlink_sprint3.sql) é um marcador explícito de pendência. O DML original da carga ainda precisa ser recuperado e validado antes de ser apresentado como evidência.
 3. O ETL Python pode carregar as stagings com `--oracle-load` quando o ambiente e as credenciais estiverem disponíveis.
 
 Credenciais, Wallet e arquivos brutos nunca devem ser versionados. Use [`.env.example`](.env.example) somente como referência de nomes das variáveis.
@@ -125,7 +125,7 @@ Credenciais, Wallet e arquivos brutos nunca devem ser versionados. Use [`.env.ex
 mindlink/
 ├── src/                 ETL oficial da Sprint 3
 ├── dags/                DAG executada no Apache Airflow
-├── sql/                 DDL e DML do modelo Oracle
+├── sql/                 DDL Oracle e marcador da pendência do DML
 ├── notebooks/           análise estatística e experimentos
 ├── tests/               testes locais sem dependência do Oracle
 ├── docs/                arquitetura, status e matriz de evidências
