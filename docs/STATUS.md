@@ -10,7 +10,7 @@ Este documento separa o que existe no código do que foi executado e do que aind
 | Coleta SIH/SUS via PySUS | Sim | Parcial | PySUS/DATASUS | Não executada no CI |
 | Enriquecimento CNES/CID | Sim | Sim na entrega | Arquivos auxiliares | Depende dos arquivos oficiais |
 | Modelo dimensional Oracle | Sim | Sim na entrega | Oracle ADB | Sem reexecução nesta revisão |
-| DML da carga Oracle | Sim | Sim na entrega | Oracle ADB | Preservada como evidência técnica |
+| DML da carga Oracle | Não | Não | Oracle ADB + script original validado | Pendente; o arquivo atual não contém comandos de carga |
 | DAG Airflow | Sim | Sim | Airflow + Wallet | Executada no ambiente da Sprint 3 |
 | Validação de 3.305 linhas | Sim | Sim | Oracle ADB | Consulta a staging previamente carregada |
 | Select AI | Referências legadas | Parcial | Perfil e credencial de IA | Não reproduzido nesta revisão |
