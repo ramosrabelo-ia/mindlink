@@ -13,7 +13,9 @@
  - CID-10 DATASUS: https://www2.datasus.gov.br/cid10/V2008/descrcsv.htm
 
  Recorte experimental: Estado de São Paulo, competências 202401 a 202512.
- Critério clínico: CID principal iniciado por F00, F01, F02, F03 ou G30.
+ Critério clínico: demência identificada nos diagnósticos principal ou secundários.
+ O modelo agrega o CID principal da internação após a seleção dos registros relacionados
+ à demência por F00, F01, F02, F03 ou G30.
 */
 
 -- DROP VIEW VW_CANDIDATOS_REALOCACAO;
