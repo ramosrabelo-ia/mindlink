@@ -53,7 +53,7 @@ Os dados existem em lugares diferentes e chegam com atraso. A **MindLink** organ
 | Oracle Autonomous Database | **Evidenciado na Sprint 3** | Staging, dimensões, fatos e views foram apresentados no ambiente da equipe. Nesta revisão, o acesso Oracle está indisponível e não foi reexecutado. |
 | Contagem de 3.305 registros | **Validada pela DAG** | A DAG consultou a staging Oracle já existente e confirmou `3.305` registros. Ela não carregou esses registros nessa mesma execução. |
 | Select AI | **Dependente do ambiente Oracle** | As perguntas e consultas de referência existem, mas a execução ao vivo exige perfil, credencial e acesso ao banco. |
-| Previsão de 1 a 3 meses | **Pesquisa/protótipo** | Há estrutura de dados e notebook analítico; não existe, neste repositório, um modelo preditivo de produção validado. |
+| Previsão de leitos-dia (1 a 6 meses) | **Protótipo funcional** | O script `sql/03_ml_previsao_mindlink.sql` (job Python) roda uma regressão de tendência por município e grava a projeção em `MINDLINK_PROJECAO_LEITOS`, lida pela página "Planejamento Preditivo" do APEX. É uma tendência linear simples, não um modelo preditivo de produção validado. |
 | Dashboard | **Protótipo separado** | A interface da fase anterior é demonstrativa e não é apresentada aqui como painel Oracle ao vivo. |
 
 ---
@@ -170,7 +170,8 @@ Os scripts oficiais estão separados por responsabilidade:
 
 1. [`sql/01_ddl_mindlink_sprint3.sql`](sql/01_ddl_mindlink_sprint3.sql) cria staging, dimensões, fatos, índices e views.
 2. [`sql/02_dml_mindlink_sprint3.sql`](sql/02_dml_mindlink_sprint3.sql) registra a carga utilizada na entrega e promove os dados para o modelo analítico.
-3. O ETL Python pode carregar as stagings com `--oracle-load` quando o ambiente e as credenciais estiverem disponíveis.
+3. [`sql/03_ml_previsao_mindlink.sql`](sql/03_ml_previsao_mindlink.sql) é um job Python (extensão `.sql` por convenção do diretório) que projeta leitos-dia por município a partir do histórico observado e grava em `MINDLINK_PROJECAO_LEITOS`, tabela lida pela página "Planejamento Preditivo" do APEX. Detalhes em [`sql/README.md`](sql/README.md).
+4. O ETL Python pode carregar as stagings com `--oracle-load` quando o ambiente e as credenciais estiverem disponíveis.
 
 > [!CAUTION]
 > Credenciais, Wallet e arquivos brutos nunca devem ser versionados. Use [`.env.example`](.env.example) somente como referência para os nomes das variáveis.
@@ -183,7 +184,7 @@ Os scripts oficiais estão separados por responsabilidade:
 mindlink/
 ├── src/                 ETL oficial da Sprint 3
 ├── dags/                DAG executada no Apache Airflow
-├── sql/                 DDL e DML do modelo Oracle
+├── sql/                 DDL, DML e projeção preditiva do modelo Oracle
 ├── notebooks/           análise estatística e experimentos
 ├── tests/               testes locais sem dependência do Oracle
 ├── docs/                arquitetura, status e matriz de evidências

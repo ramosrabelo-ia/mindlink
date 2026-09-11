@@ -15,13 +15,17 @@ Este documento separa o que existe no código do que foi executado e do que aind
 | Validação de 3.305 linhas | Sim | Sim | Oracle ADB | Consulta a staging previamente carregada |
 | Select AI | Referências legadas | Parcial | Perfil e credencial de IA | Não reproduzido nesta revisão |
 | Dashboard Oracle ao vivo | Não | Não | Backend hospedado | Fora do escopo comprovado |
-| Previsão operacional | Estrutura/notebook | Não como produção | Série, modelo e monitoramento | Pesquisa/protótipo |
+| Previsão de leitos-dia | Script `sql/03` (Python) | Executável sob demanda | Oracle ADB + Wallet | Protótipo funcional: tendência linear por município, sem validação de produção |
 
 ## Leitura correta da execução Airflow
 
 A DAG `mindlink_primeira_dag` executa o ETL com `--demo`, valida que os arquivos locais foram gerados e, em outra task, conecta ao Oracle para consultar `STG_MINDLINK_INTERNACOES`.
 
 A consulta retornou 3.305 linhas no ambiente utilizado na Sprint 3. O comando chamado pela DAG não contém `--oracle-load`; portanto, a execução comprovou orquestração local e integração de leitura com o Oracle, mas não realizou a carga dessas 3.305 linhas naquele run.
+
+## Camada preditiva
+
+A camada preditiva foi migrada de um modelo OML/ESM dentro do banco — que passou a retornar `ORA-40342` no Autonomous Database em uso — para um job Python externo. O `sql/03_ml_previsao_mindlink.sql` lê `MINDLINK_APP.VW_MINDLINK_PRESSAO`, ajusta uma regressão de tendência por município e grava a projeção de 6 meses em `MINDLINK_PROJECAO_LEITOS`, consumida pela página "Planejamento Preditivo" do APEX. É uma linha de tendência simples, sem backtesting nem monitoramento: orienta planejamento, não substitui análise clínica.
 
 ## Próximas validações quando o Oracle estiver disponível
 
